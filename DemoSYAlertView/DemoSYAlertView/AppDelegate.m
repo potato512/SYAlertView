@@ -20,7 +20,8 @@
     // Override point for customization after application launch.
     
     ViewController *rootVC = [ViewController new];
-    self.window.rootViewController = rootVC;
+    UINavigationController *rootNav = [[UINavigationController alloc] initWithRootViewController:rootVC];
+    self.window.rootViewController = rootNav;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     

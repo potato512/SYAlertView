@@ -103,48 +103,37 @@ static NSTimeInterval const timeAnimation = 0.4f;
 
 #pragma mark - 键盘处理
 
-- (NSDictionary *)editView:(UIView *)view
+- (UIView *)editView:(UIView *)view
 {
-    NSMutableDictionary *dict = [NSMutableDictionary new];
-    [dict setObject:NSStringFromCGRect(view.frame) forKey:NSStringFromClass([view class])];
-    
-    NSArray *views = view.subviews;
-    if (views && views.count > 0) {
-        BOOL isEditUI = NO;
-        for (UIView *subview in views) {
-            if ([subview isKindOfClass:[UITextField class]] || [subview isKindOfClass:[UITextView class]]) {
-                isEditUI = YES;
+    UIView *result = nil;
+    for (UIView *subview in view.subviews) {
+        if ([subview isKindOfClass:[UITextField class]] || [subview isKindOfClass:[UITextView class]]) {
+            if ([subview isFirstResponder]) {
+                result = subview;
                 break;
             }
         }
-        if (isEditUI) {
-            for (UIView *subview in views) {
-                if ([subview isKindOfClass:[UITextField class]] || [subview isKindOfClass:[UITextView class]]) {
-                    if ([subview isFirstResponder]) {
-                        [dict setObject:NSStringFromCGRect(subview.frame) forKey:NSStringFromClass([subview class])];
-                        break ;
-                    }
-                }
-            }
-        } else {
-            for (UIView *subview in views) {
-                NSDictionary *dictTmp = [self editView:subview];
-                if (dictTmp.count > 0) {
-                    [dict setDictionary:dictTmp];
-                    break;
-                }
-            }
-        }
+        result = [self editView:subview];
     }
-    return dict;
+    return result;
+}
+
+- (CGFloat)editViewOriginY:(UIView *)view baseView:(UIView *)baseview
+{
+    CGFloat height = view.frame.origin.y;
+    UIView *superview = view.superview;
+    NSLog(@"superview: %@", superview);
+    if (superview && ![superview isEqual:baseview]) {
+        height += superview.frame.origin.y;
+        NSLog(@"1 height: %f", height);
+        height = [self editViewOriginY:superview baseView:baseview];
+        NSLog(@"2 height: %f", height);
+    }
+    return height;
 }
 
 - (void)keyboardShow:(NSNotification *)notification
 {
-    NSDictionary *dict = [self editView:self.containerView];
-    NSLog(@"<------\n dict %@\nkeys %@\nvalues %@\n------>\n", dict, dict.allKeys, dict.allValues);
-
-    
     if (self.isKeyboardHide) {
         self.originYContainer = self.containerView.frame.origin.y;
         self.isKeyboardHide = NO;
@@ -152,9 +141,12 @@ static NSTimeInterval const timeAnimation = 0.4f;
 
     // 当前编辑视图的位置的大小
     // 说明：使用递归算法遍历所有子视图的子视图，直到找到编辑视图或不再有子视图为止
-    UIView *editView = nil;
+    UIView *editView = [self editView:self.containerView];
     CGFloat editOriginY = editView.frame.origin.y;
     CGFloat editHeight = editView.frame.size.height;
+    
+    CGFloat editViewOriginY = [self editViewOriginY:editView baseView:self.containerView];
+    NSLog(@"editViewOriginY = %@", @(editViewOriginY));
     
     
     // 键盘高度
