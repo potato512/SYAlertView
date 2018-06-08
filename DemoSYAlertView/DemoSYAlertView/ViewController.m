@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "SYAlertView.h"
-#import "AppDelegate.h"
 
 static CGFloat const originXY = 20.0;
 static CGFloat const heightButton = 40.0;
@@ -66,18 +65,39 @@ static CGFloat const heightButton = 40.0;
 - (void)buttonClick:(UIButton *)button
 {
     if (0 == button.tag) {
+        // 默认动画
         self.alertView.showContainerView = self.messageView;
         [self.alertView show];
     } else if (1 == button.tag) {
+        // 无动画
+        self.alertView.animation = nil;
+        //
         self.alertView.containerView.frame = CGRectMake(originXY, (self.alertView.frame.size.height - self.titleMessageView.frame.size.height) / 2, (self.alertView.frame.size.width - originXY * 2), self.titleMessageView.frame.size.height);
         [self.alertView.containerView addSubview:self.titleMessageView];
         [self.alertView show];
     } else if (2 == button.tag) {
+        // 立方体动画——私有API
+        CATransition *animation = [CATransition animation];
+        [animation setDuration:0.35f];
+        [animation setFillMode:kCAFillModeForwards];
+        [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut]];
+        [animation setType:@"cube"];
+        [animation setSubtype:@"fromRight"];
+        self.alertView.animation = animation;
+        //
         self.alertView.containerView.frame = CGRectMake(20.0, 100.0, (self.alertView.frame.size.width - 40.0f), self.titleEidtView.frame.size.height);
         [self.alertView.containerView addSubview:self.titleEidtView];
         [self.alertView show];
     } else if (3 == button.tag) {
-        self.alertView.containerView.frame = CGRectMake(20.0, 60.0, (self.alertView.frame.size.width - 40.0f), self.editView.frame.size.height);
+        // 涟漪动画——私有API
+        CATransition *animation = [CATransition animation];
+        [animation setDuration:0.35f];
+        [animation setFillMode:kCAFillModeForwards];
+        [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut]];
+        [animation setType:@"rippleEffect"];
+        self.alertView.animation = animation;
+        //
+        self.alertView.containerView.frame = CGRectMake(20.0, (self.alertView.frame.size.height - 20.0 - self.editView.frame.size.height), (self.alertView.frame.size.width - 40.0f), self.editView.frame.size.height);
         [self.alertView.containerView addSubview:self.editView];
         [self.alertView show];
     }
@@ -93,9 +113,7 @@ static CGFloat const heightButton = 40.0;
 - (SYAlertView *)alertView
 {
     if (_alertView == nil) {
-        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        UIView *view = delegate.window;
-        _alertView = [[SYAlertView alloc] initWithView:view];
+        _alertView = [[SYAlertView alloc] init];
         _alertView.isAnimation = YES;
     }
     return _alertView;
@@ -204,6 +222,7 @@ static CGFloat const heightButton = 40.0;
         
         UITextField *textfield = [[UITextField alloc] initWithFrame:CGRectMake(currentView.frame.origin.x, (currentView.frame.origin.y + currentView.frame.size.height + originXY), currentView.frame.size.width, heightButton)];
         textfield.backgroundColor = [UIColor lightGrayColor];
+        textfield.text = @"UITextField";
         [_titleEidtView addSubview:textfield];
         
         currentView = textfield;
@@ -235,12 +254,14 @@ static CGFloat const heightButton = 40.0;
         
         UITextField *textfield = [[UITextField alloc] initWithFrame:CGRectMake(originXY, originXY, (_editView.frame.size.width - originXY * 2), heightButton)];
         textfield.backgroundColor = [UIColor greenColor];
+        textfield.text = @"UITextField";
         
         UIView *currentView = textfield;
         
         UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(currentView.frame.origin.x, (currentView.frame.origin.y + currentView.frame.size.height + originXY), currentView.frame.size.width, currentView.frame.size.height)];
-        UITextField *textfield2 = [[UITextField alloc] initWithFrame:view2.bounds];
+        UITextView *textfield2 = [[UITextView alloc] initWithFrame:view2.bounds];
         textfield2.backgroundColor = [UIColor orangeColor];
+        textfield2.text = @"UITextView";
         [view2 addSubview:textfield2];
         
         currentView = view2;
@@ -250,6 +271,7 @@ static CGFloat const heightButton = 40.0;
         [view3 addSubview:view32];
         UITextField *textfield3 = [[UITextField alloc] initWithFrame:view32.bounds];
         textfield3.backgroundColor = [UIColor greenColor];
+        textfield3.text = @"UITextField";
         [view32 addSubview:textfield3];
         
         currentView = view3;

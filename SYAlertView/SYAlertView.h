@@ -11,7 +11,6 @@
 @interface SYAlertView : UIView
 
 - (instancetype)init;
-- (instancetype)initWithView:(UIView *)view;
 
 /// 子视图容器（设置具体UI。如已设置showContainerView则无需设置此属性的frame及添加子视图，避免重复）
 @property (nonatomic, strong) UIView *containerView;

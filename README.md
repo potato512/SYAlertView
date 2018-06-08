@@ -1,9 +1,13 @@
 # SYAlertView
 自定义弹窗子视图UI
-根据UI设计需求，自定义各种样式的弹窗子视图，既可以设置样式，也可以设置动画。
-
+根据UI设计需求，自定义各种样式的弹窗子视图：
+* 自定义UI及样式
+* 自定义显示动画
+* 编辑控件自适应键盘高度
 
 #### 效果图
+
+![SYAlertView.gif](./SYAlertView.gif)
 
 #### 代码示例
 1、导入头文件
@@ -13,11 +17,8 @@
 
 2、实例化
 ```
-AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-UIView *view = delegate.window;
-SYAlertView *alertView = [[SYAlertView alloc] initWithView:view];
+SYAlertView *alertView = [[SYAlertView alloc] init];
 alertView.isAnimation = YES;
-alertView.timeAnimation = 0.6;
 ```
 
 3、子视图设置
@@ -53,6 +54,12 @@ alertView.containerView.frame = CGRectMake(20.0f, (alertView.frame.size.height -
 ```
 
 #### 修改说明
+* 20180608
+  * 版本号：1.0.1
+  * 功能完善
+    * 编辑控件时，自适应键盘高度避免被键盘遮挡
+    * 自定义显示动画
+    
 * 20180605
   * 版本号：1.0.0
   * 添加源码
