@@ -10,6 +10,7 @@
 ![SYAlertView.gif](./SYAlertView.gif)
 
 #### 代码示例
+
 1、导入头文件
 ```
 #import "SYAlertView.h"
@@ -33,22 +34,26 @@ UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(20.0f, 70.0f, 160.
 [button addTarget:self action:@selector(closeClick:) forControlEvents:UIControlEventTouchUpInside]
 [view addSubview:button];
 ```
-（1）方法1
+
+方法1
 ```
 alertView.showContainerView = view;
 ```
-（2）方法2
+
+方法2
 ```
 alertView.containerView.frame = CGRectMake(20.0f, (alertView.frame.size.height - view.frame.size.height) / 2, view.frame.size.width, view.frame.size.height);
 [alertView.containerView addSubview:view];
 ```
 
 4、方法调用
-（1）显示
+
+显示
 ```
 [alertView show];
 ```
-（2）隐藏
+
+隐藏
 ```
 [alertView hide];
 ```
