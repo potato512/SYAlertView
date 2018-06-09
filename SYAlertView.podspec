@@ -9,5 +9,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/potato512/SYAlertView.git', :tag => "#{s.version}" }
   s.source_files  = 'SYAlertView/*.{h,m}'
   s.requires_arc = true
+  s.platform     = :ios, "9.0"
 
 end
