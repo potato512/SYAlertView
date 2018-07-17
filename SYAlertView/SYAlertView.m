@@ -243,7 +243,7 @@ static NSTimeInterval const timeAnimation = 0.4f;
 {
     _showContainerView = showContainerView;
     if (_showContainerView) {
-        self.containerView.frame = CGRectMake(20.0f, (self.frame.size.height - _showContainerView.frame.size.height) / 2, _showContainerView.frame.size.width, _showContainerView.frame.size.height);
+        self.containerView.frame = CGRectMake((self.frame.size.width - _showContainerView.frame.size.width) / 2, (self.frame.size.height - _showContainerView.frame.size.height) / 2, _showContainerView.frame.size.width, _showContainerView.frame.size.height);
         [self.containerView addSubview:_showContainerView];
     }
 }
