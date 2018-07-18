@@ -36,9 +36,7 @@
  #import "SYAlertView.h"
  
  2、实例化
- AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
- UIView *view = delegate.window;
- SYAlertView *alertView = [[SYAlertView alloc] initWithView:view];
+ SYAlertView *alertView = [[SYAlertView alloc] init];
  alertView.isAnimation = YES;
  alertView.timeAnimation = 0.6;
  
