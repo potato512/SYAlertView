@@ -13,8 +13,6 @@ static NSTimeInterval const timeAnimation = 0.4f;
 
 @interface SYAlertView () <UIGestureRecognizerDelegate>
 
-@property (nonatomic, strong) UIWindow *alertWindow;
-
 @property (nonatomic, assign) CGFloat originYInitialize; // 初始化UI时的原点位置，便于结束编辑时恢复位置
 @property (nonatomic, assign) CGSize sizeKeyboard;
 @property (nonatomic, weak) UIView *editingView;
@@ -29,14 +27,9 @@ static NSTimeInterval const timeAnimation = 0.4f;
     if (self) {
         [self setUI];
         if (self.superview == nil) {
-            // 方法1 放弃 20180724
-//            UIWindow *view = [[UIApplication sharedApplication] keyWindow];
-//            self.frame = view.bounds;
-//            [view addSubview:self];
-            
-            // 方法2 现用 20180724
-            self.frame = self.alertWindow.bounds;
-            [self.alertWindow addSubview:self];
+            UIWindow *view = [[UIApplication sharedApplication] keyWindow];
+            self.frame = view.bounds;
+            [view addSubview:self];
         }
     }
     return self;
@@ -116,10 +109,6 @@ static NSTimeInterval const timeAnimation = 0.4f;
         self.hidden = YES;
     }
     [self.containerView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    
-    // 隐藏
-    [self.alertWindow resignKeyWindow];
-    self.alertWindow.hidden = YES;
 }
 
 - (void)show
@@ -130,10 +119,6 @@ static NSTimeInterval const timeAnimation = 0.4f;
 #endif
         return;
     }
-    
-    // 显示
-    [self.alertWindow becomeKeyWindow];
-    self.alertWindow.hidden = NO;
     
     self.hidden = NO;
     if (self.isAnimation) {
@@ -261,16 +246,6 @@ static NSTimeInterval const timeAnimation = 0.4f;
         _containerView.backgroundColor = [UIColor clearColor];
     }
     return _containerView;
-}
-
-- (UIWindow *)alertWindow
-{
-    if (_alertWindow == nil) {
-        _alertWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        _alertWindow.windowLevel = UIWindowLevelAlert;
-        [_alertWindow makeKeyAndVisible];
-    }
-    return _alertWindow;
 }
 
 @end
