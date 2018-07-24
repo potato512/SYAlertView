@@ -96,6 +96,7 @@ static CGFloat const heightButton = 40.0;
         [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut]];
         [animation setType:@"rippleEffect"];
         self.alertView.animation = animation;
+        self.alertView.originSpace = 20.0f;
         //
         self.alertView.containerView.frame = CGRectMake(20.0, (self.alertView.frame.size.height - 20.0 - self.editView.frame.size.height), (self.alertView.frame.size.width - 40.0f), self.editView.frame.size.height);
         [self.alertView.containerView addSubview:self.editView];

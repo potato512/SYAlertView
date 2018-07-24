@@ -13,8 +13,10 @@ static NSTimeInterval const timeAnimation = 0.4f;
 
 @interface SYAlertView () <UIGestureRecognizerDelegate>
 
-@property (nonatomic, assign) BOOL isKeyboardShow;
-@property (nonatomic, assign) CGFloat originYContainer;
+@property (nonatomic, strong) UIWindow *alertWindow;
+@property (nonatomic, strong) UIViewController *controller;
+
+@property (nonatomic, assign) CGFloat originYInitialize; // 初始化UI时的原点位置，便于结束编辑时恢复位置
 @property (nonatomic, assign) CGSize sizeKeyboard;
 @property (nonatomic, weak) UIView *editingView;
 
@@ -28,9 +30,14 @@ static NSTimeInterval const timeAnimation = 0.4f;
     if (self) {
         [self setUI];
         if (self.superview == nil) {
-            UIWindow *view = [[UIApplication sharedApplication] keyWindow];
-            self.frame = view.bounds;
-            [view addSubview:self];
+            // 方法1 放弃 20180724
+//            UIWindow *view = [[UIApplication sharedApplication] keyWindow];
+//            self.frame = view.bounds;
+//            [view addSubview:self];
+            
+            // 方法2 现用 20180724
+            self.frame = self.alertWindow.bounds;
+            [self.alertWindow addSubview:self];
         }
     }
     return self;
@@ -110,14 +117,24 @@ static NSTimeInterval const timeAnimation = 0.4f;
         self.hidden = YES;
     }
     [self.containerView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
+    // 隐藏
+    [self.alertWindow resignKeyWindow];
+    self.alertWindow.hidden = YES;
 }
 
 - (void)show
 {
     if (self.containerView.subviews.count <= 0) {
+#if DEBUG
         NSLog(@"\n<------\n没有设置containerView的frame及添加子视图，或是没有设置属性showContainerView\n------>\n");
+#endif
         return;
     }
+    
+    // 显示
+    [self.alertWindow becomeKeyWindow];
+    self.alertWindow.hidden = NO;
     
     self.hidden = NO;
     if (self.isAnimation) {
@@ -149,7 +166,7 @@ static NSTimeInterval const timeAnimation = 0.4f;
     // 重置编辑窗口位置
     // 当前编辑视图的所有父视图
     NSArray *superviews = [self editSuperviews:self.editingView base:self.containerView];
-    NSLog(@"superviews = %@", superviews);
+//    NSLog(@"superviews = %@", superviews);
     CGFloat __block originY = self.editingView.frame.origin.y;
     [superviews enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         originY += ((UIView *)obj).frame.origin.y;
@@ -157,17 +174,20 @@ static NSTimeInterval const timeAnimation = 0.4f;
     
     CGFloat height = (self.containerView.superview.frame.size.height - self.sizeKeyboard.height);
     CGFloat heightShow = (self.containerView.frame.origin.y + originY + self.editingView.frame.size.height);
-    if (height < (heightShow + heightSpace)) {
+    CGFloat space = (self.originSpace <= 0.0 ? heightSpace : self.originSpace);
+    BOOL shouldChange = (height < (heightShow + space) ? YES : NO);
+    BOOL shouldChangeWhileInitialize = (height < (self.originYInitialize + originY + self.editingView.frame.size.height + space) ? YES : NO);
+    if (shouldChange || shouldChangeWhileInitialize) {
         CGRect __block rect = self.containerView.frame;
         if (self.isAnimation) {
             [UIView animateWithDuration:0.3 animations:^{
-                rect.origin.y = (self.containerView.superview.frame.size.height - self.sizeKeyboard.height - heightSpace - originY - self.editingView.frame.size.height);
-//                rect.origin.y = 10.0;
+                rect.origin.y = (self.containerView.superview.frame.size.height - self.sizeKeyboard.height - space - originY - self.editingView.frame.size.height);
+                // rect.origin.y = 10.0;
                 self.containerView.frame = rect;
             }];
         } else {
-            rect.origin.y = (self.containerView.superview.frame.size.height - self.sizeKeyboard.height - heightSpace - originY - self.editingView.frame.size.height);
-//            rect.origin.y = 10.0;
+            rect.origin.y = (self.containerView.superview.frame.size.height - self.sizeKeyboard.height - space - originY - self.editingView.frame.size.height);
+            // rect.origin.y = 10.0;
             self.containerView.frame = rect;
         }
     }
@@ -175,13 +195,6 @@ static NSTimeInterval const timeAnimation = 0.4f;
 
 - (void)keyboardShow:(NSNotification *)notification
 {
-    NSLog(@"%s, notification = %@", __func__, notification);
-    
-    if (self.isKeyboardShow) {
-        self.originYContainer = self.containerView.frame.origin.y;
-        self.isKeyboardShow = NO;
-    }
-    
     // 键盘高度
     NSDictionary *keyboardDict = [notification userInfo];
     self.sizeKeyboard = [[keyboardDict objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
@@ -194,34 +207,28 @@ static NSTimeInterval const timeAnimation = 0.4f;
 
 - (void)keyboardHide:(NSNotification *)notification
 {
-    NSLog(@"%s, notification = %@", __func__, notification);
-
     CGRect __block rect = self.containerView.frame;
     if (self.isAnimation) {
         [UIView animateWithDuration:0.3 animations:^{
-            rect.origin.y = self.originYContainer;
+            rect.origin.y = self.originYInitialize;
             self.containerView.frame = rect;
         }];
     } else {
-        rect.origin.y = self.originYContainer;
+        rect.origin.y = self.originYInitialize;
         self.containerView.frame = rect;
     }
-    
-    self.isKeyboardShow = NO;
-    self.originYContainer = 0.0;
+
     self.sizeKeyboard = CGSizeZero;
+    self.originYInitialize = 0.0;
 }
 
 #pragma mark 编辑
 
 - (void)editviewBeginEdit:(NSNotification *)notification
 {
-    NSLog(@"%s, notification = %@", __func__, notification);
-    
-    self.isKeyboardShow = YES;
     self.editingView = notification.object;
-    if ([self.editingView isKindOfClass:[UITextView class]] && self.originYContainer == 0.0f) {
-        self.originYContainer = self.containerView.frame.origin.y;
+    if (([self.editingView isKindOfClass:[UITextView class]] || [self.editingView isKindOfClass:[UITextField class]]) && self.originYInitialize == 0.0f) {
+        self.originYInitialize = self.containerView.frame.origin.y;
     }
     
     if (!CGSizeEqualToSize(self.sizeKeyboard, CGSizeZero)) {
@@ -232,8 +239,6 @@ static NSTimeInterval const timeAnimation = 0.4f;
 
 - (void)editviewEndEdit:(NSNotification *)notification
 {
-    NSLog(@"%s, notification = %@", __func__, notification);
-    
     self.editingView = nil;
 }
 
@@ -257,6 +262,24 @@ static NSTimeInterval const timeAnimation = 0.4f;
         _containerView.backgroundColor = [UIColor clearColor];
     }
     return _containerView;
+}
+
+- (UIWindow *)alertWindow
+{
+    if (_alertWindow == nil) {
+        _alertWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        _alertWindow.windowLevel = UIWindowLevelAlert;
+        [_alertWindow makeKeyAndVisible];
+    }
+    return _alertWindow;
+}
+
+- (UIViewController *)controller
+{
+    if (_controller == nil) {
+        _controller = [[UIViewController alloc] init];
+    }
+    return _controller;
 }
 
 @end

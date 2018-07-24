@@ -21,7 +21,8 @@
 @property (nonatomic, assign) BOOL isAnimation;
 /// 动画设置（默认放大缩小）
 @property (nonatomic, strong) CAAnimation *animation;
-
+/// 编辑时与键盘间距（默认10.0）
+@property (nonatomic, assign) CGFloat originSpace;
 
 /// 显示（显示之前需要设置containerView的子视图，及其frame）
 - (void)show;

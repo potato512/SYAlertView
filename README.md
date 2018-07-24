@@ -20,6 +20,7 @@
 ```
 SYAlertView *alertView = [[SYAlertView alloc] init];
 alertView.isAnimation = YES;
+alertView.originSpace = 20.0f;
 ```
 
 3、子视图设置
@@ -59,6 +60,13 @@ alertView.containerView.frame = CGRectMake(20.0f, (alertView.frame.size.height -
 ```
 
 #### 修改说明
+* 20180724
+  * 版本号：1.0.3
+  * 优化完善
+    * 添加属性`originSpace`设置编辑视图与键盘间距
+    * 结束编辑后，视图恢复原点位置
+    * 切换编辑视图时，位置改变
+    
 * 20180718
   * 版本号：1.0.2
   * 修改文档说明
