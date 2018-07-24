@@ -14,7 +14,6 @@ static NSTimeInterval const timeAnimation = 0.4f;
 @interface SYAlertView () <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) UIWindow *alertWindow;
-@property (nonatomic, strong) UIViewController *controller;
 
 @property (nonatomic, assign) CGFloat originYInitialize; // 初始化UI时的原点位置，便于结束编辑时恢复位置
 @property (nonatomic, assign) CGSize sizeKeyboard;
@@ -272,14 +271,6 @@ static NSTimeInterval const timeAnimation = 0.4f;
         [_alertWindow makeKeyAndVisible];
     }
     return _alertWindow;
-}
-
-- (UIViewController *)controller
-{
-    if (_controller == nil) {
-        _controller = [[UIViewController alloc] init];
-    }
-    return _controller;
 }
 
 @end

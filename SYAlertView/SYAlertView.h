@@ -40,6 +40,7 @@
  SYAlertView *alertView = [[SYAlertView alloc] init];
  alertView.isAnimation = YES;
  alertView.timeAnimation = 0.6;
+ alertView.originSpace = 20.0f;
  
  3、子视图设置
  // 自定义的子视图
