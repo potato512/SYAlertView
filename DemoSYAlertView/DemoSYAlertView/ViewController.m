@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "SYAlertView.h"
+#import "SYAlertController.h"
 
 static CGFloat const originXY = 20.0;
 static CGFloat const heightButton = 40.0;
@@ -15,7 +15,7 @@ static CGFloat const heightButton = 40.0;
 
 @interface ViewController ()
 
-@property (nonatomic, strong) SYAlertView *alertView;
+@property (nonatomic, strong) SYAlertController *alertView;
 
 @property (nonatomic, strong) UIView *messageView;
 @property (nonatomic, strong) UIView *titleMessageView;
@@ -66,13 +66,16 @@ static CGFloat const heightButton = 40.0;
 {
     if (0 == button.tag) {
         // 默认动画
+        self.alertView.isAnimation = YES;
+        self.alertView.adjustKeyboardHeight = NO;
         self.alertView.showContainerView = self.messageView;
         [self.alertView show];
     } else if (1 == button.tag) {
         // 无动画
-        self.alertView.animation = nil;
+        self.alertView.isAnimation = NO;
+        self.alertView.adjustKeyboardHeight = NO;
         //
-        self.alertView.containerView.frame = CGRectMake(originXY, (self.alertView.frame.size.height - self.titleMessageView.frame.size.height) / 2, (self.alertView.frame.size.width - originXY * 2), self.titleMessageView.frame.size.height);
+        self.alertView.containerView.frame = CGRectMake(originXY, (self.alertView.view.frame.size.height - self.titleMessageView.frame.size.height) / 2, (self.alertView.view.frame.size.width - originXY * 2), self.titleMessageView.frame.size.height);
         [self.alertView.containerView addSubview:self.titleMessageView];
         [self.alertView show];
     } else if (2 == button.tag) {
@@ -85,7 +88,10 @@ static CGFloat const heightButton = 40.0;
         [animation setSubtype:@"fromRight"];
         self.alertView.animation = animation;
         //
-        self.alertView.containerView.frame = CGRectMake(20.0, 100.0, (self.alertView.frame.size.width - 40.0f), self.titleEidtView.frame.size.height);
+        self.alertView.originSpace = 10.0f;
+        self.alertView.isAnimation = YES;
+        self.alertView.adjustKeyboardHeight = NO;
+        self.alertView.containerView.frame = CGRectMake(20.0, 100.0, (self.alertView.view.frame.size.width - 40.0f), self.titleEidtView.frame.size.height);
         [self.alertView.containerView addSubview:self.titleEidtView];
         [self.alertView show];
     } else if (3 == button.tag) {
@@ -96,8 +102,11 @@ static CGFloat const heightButton = 40.0;
         [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut]];
         [animation setType:@"rippleEffect"];
         self.alertView.animation = animation;
+        self.alertView.originSpace = 20.0f;
+        self.alertView.isAnimation = YES;
+        self.alertView.adjustKeyboardHeight = NO;
         //
-        self.alertView.containerView.frame = CGRectMake(20.0, (self.alertView.frame.size.height - 20.0 - self.editView.frame.size.height), (self.alertView.frame.size.width - 40.0f), self.editView.frame.size.height);
+        self.alertView.containerView.frame = CGRectMake(20.0, (self.alertView.view.frame.size.height - 20.0 - self.editView.frame.size.height), (self.alertView.view.frame.size.width - 40.0f), self.editView.frame.size.height);
         [self.alertView.containerView addSubview:self.editView];
         [self.alertView show];
     }
@@ -110,11 +119,12 @@ static CGFloat const heightButton = 40.0;
 
 #pragma mark - getter
 
-- (SYAlertView *)alertView
+- (SYAlertController *)alertView
 {
     if (_alertView == nil) {
-        _alertView = [[SYAlertView alloc] init];
-        _alertView.isAnimation = YES;
+        _alertView = [[SYAlertController alloc] init];
+//        _alertView.isAnimation = YES;
+//        _alertView.adjustKeyboardHeight = YES;
     }
     return _alertView;
 }

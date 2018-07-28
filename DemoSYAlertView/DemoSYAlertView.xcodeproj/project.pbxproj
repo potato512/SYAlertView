@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2533580304ABBBBD3B9EF808 /* libPods-DemoSYAlertView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 681F3CCF16EC849D7127635F /* libPods-DemoSYAlertView.a */; };
+		28FF12904D2282BCE375DC11 /* libPods-DemoSYAlertViewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D48B0320944712204C9F7E3C /* libPods-DemoSYAlertViewTests.a */; };
 		A7FDCF4620C67C6E00FBA5A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FDCF4520C67C6E00FBA5A6 /* AppDelegate.m */; };
 		A7FDCF4920C67C6E00FBA5A6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FDCF4820C67C6E00FBA5A6 /* ViewController.m */; };
 		A7FDCF4C20C67C6E00FBA5A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7FDCF4A20C67C6E00FBA5A6 /* Main.storyboard */; };
@@ -15,7 +17,8 @@
 		A7FDCF5420C67C7700FBA5A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FDCF5320C67C7700FBA5A6 /* main.m */; };
 		A7FDCF5E20C67C7700FBA5A6 /* DemoSYAlertViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FDCF5D20C67C7700FBA5A6 /* DemoSYAlertViewTests.m */; };
 		A7FDCF6920C67C7700FBA5A6 /* DemoSYAlertViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FDCF6820C67C7700FBA5A6 /* DemoSYAlertViewUITests.m */; };
-		A7FDCF7920C67E5C00FBA5A6 /* SYAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FDCF7820C67E5C00FBA5A6 /* SYAlertView.m */; };
+		C13B6588FB2EF4762F1C4F9D /* libPods-DemoSYAlertViewUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D60DB0725023849B7A71385 /* libPods-DemoSYAlertViewUITests.a */; };
+		DFA0A136210BE7D500BF3A0D /* SYAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA0A135210BE7D500BF3A0D /* SYAlertController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F598B8767A675DAC6098821 /* Pods-DemoSYAlertViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoSYAlertViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoSYAlertViewTests/Pods-DemoSYAlertViewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1ECE50615764618313E841A8 /* Pods-DemoSYAlertView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoSYAlertView.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoSYAlertView/Pods-DemoSYAlertView.release.xcconfig"; sourceTree = "<group>"; };
+		681F3CCF16EC849D7127635F /* libPods-DemoSYAlertView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DemoSYAlertView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EDC1B5DE1FA41438A3A3673 /* Pods-DemoSYAlertViewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoSYAlertViewUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoSYAlertViewUITests/Pods-DemoSYAlertViewUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9D60DB0725023849B7A71385 /* libPods-DemoSYAlertViewUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DemoSYAlertViewUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4477CA6274CCEE57C45CBB2 /* Pods-DemoSYAlertView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoSYAlertView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoSYAlertView/Pods-DemoSYAlertView.debug.xcconfig"; sourceTree = "<group>"; };
 		A7FDCF4120C67C6E00FBA5A6 /* DemoSYAlertView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoSYAlertView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7FDCF4420C67C6E00FBA5A6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A7FDCF4520C67C6E00FBA5A6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -52,8 +61,11 @@
 		A7FDCF6420C67C7700FBA5A6 /* DemoSYAlertViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoSYAlertViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7FDCF6820C67C7700FBA5A6 /* DemoSYAlertViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoSYAlertViewUITests.m; sourceTree = "<group>"; };
 		A7FDCF6A20C67C7700FBA5A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A7FDCF7720C67E5C00FBA5A6 /* SYAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYAlertView.h; sourceTree = "<group>"; };
-		A7FDCF7820C67E5C00FBA5A6 /* SYAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYAlertView.m; sourceTree = "<group>"; };
+		B8ECBEFFEBDEE5A8DA5DBC75 /* Pods-DemoSYAlertViewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoSYAlertViewUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoSYAlertViewUITests/Pods-DemoSYAlertViewUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D48B0320944712204C9F7E3C /* libPods-DemoSYAlertViewTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DemoSYAlertViewTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFA0A134210BE7D500BF3A0D /* SYAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYAlertController.h; sourceTree = "<group>"; };
+		DFA0A135210BE7D500BF3A0D /* SYAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYAlertController.m; sourceTree = "<group>"; };
+		E24B4265E3C80BE4C2150A2A /* Pods-DemoSYAlertViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoSYAlertViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoSYAlertViewTests/Pods-DemoSYAlertViewTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2533580304ABBBBD3B9EF808 /* libPods-DemoSYAlertView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28FF12904D2282BCE375DC11 /* libPods-DemoSYAlertViewTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,12 +89,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C13B6588FB2EF4762F1C4F9D /* libPods-DemoSYAlertViewUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C7346034E9AE18AD0A7A455 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				681F3CCF16EC849D7127635F /* libPods-DemoSYAlertView.a */,
+				D48B0320944712204C9F7E3C /* libPods-DemoSYAlertViewTests.a */,
+				9D60DB0725023849B7A71385 /* libPods-DemoSYAlertViewUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A22A93C27BDAC701E680D057 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4477CA6274CCEE57C45CBB2 /* Pods-DemoSYAlertView.debug.xcconfig */,
+				1ECE50615764618313E841A8 /* Pods-DemoSYAlertView.release.xcconfig */,
+				0F598B8767A675DAC6098821 /* Pods-DemoSYAlertViewTests.debug.xcconfig */,
+				E24B4265E3C80BE4C2150A2A /* Pods-DemoSYAlertViewTests.release.xcconfig */,
+				8EDC1B5DE1FA41438A3A3673 /* Pods-DemoSYAlertViewUITests.debug.xcconfig */,
+				B8ECBEFFEBDEE5A8DA5DBC75 /* Pods-DemoSYAlertViewUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A7FDCF3820C67C6E00FBA5A6 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +126,8 @@
 				A7FDCF5C20C67C7700FBA5A6 /* DemoSYAlertViewTests */,
 				A7FDCF6720C67C7700FBA5A6 /* DemoSYAlertViewUITests */,
 				A7FDCF4220C67C6E00FBA5A6 /* Products */,
+				A22A93C27BDAC701E680D057 /* Pods */,
+				4C7346034E9AE18AD0A7A455 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,8 +179,8 @@
 		A7FDCF7620C67E5C00FBA5A6 /* SYAlertView */ = {
 			isa = PBXGroup;
 			children = (
-				A7FDCF7720C67E5C00FBA5A6 /* SYAlertView.h */,
-				A7FDCF7820C67E5C00FBA5A6 /* SYAlertView.m */,
+				DFA0A134210BE7D500BF3A0D /* SYAlertController.h */,
+				DFA0A135210BE7D500BF3A0D /* SYAlertController.m */,
 			);
 			name = SYAlertView;
 			path = ../../SYAlertView;
@@ -153,9 +193,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7FDCF6D20C67C7700FBA5A6 /* Build configuration list for PBXNativeTarget "DemoSYAlertView" */;
 			buildPhases = (
+				66F0A161615B40046C2F0674 /* [CP] Check Pods Manifest.lock */,
 				A7FDCF3D20C67C6E00FBA5A6 /* Sources */,
 				A7FDCF3E20C67C6E00FBA5A6 /* Frameworks */,
 				A7FDCF3F20C67C6E00FBA5A6 /* Resources */,
+				F787426E7BE6D1B375900811 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,6 +212,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7FDCF7020C67C7700FBA5A6 /* Build configuration list for PBXNativeTarget "DemoSYAlertViewTests" */;
 			buildPhases = (
+				CCE8FC6DB2171BFEC00DC66E /* [CP] Check Pods Manifest.lock */,
 				A7FDCF5520C67C7700FBA5A6 /* Sources */,
 				A7FDCF5620C67C7700FBA5A6 /* Frameworks */,
 				A7FDCF5720C67C7700FBA5A6 /* Resources */,
@@ -188,6 +231,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7FDCF7320C67C7700FBA5A6 /* Build configuration list for PBXNativeTarget "DemoSYAlertViewUITests" */;
 			buildPhases = (
+				82F5A014B618B6683AD191B1 /* [CP] Check Pods Manifest.lock */,
 				A7FDCF6020C67C7700FBA5A6 /* Sources */,
 				A7FDCF6120C67C7700FBA5A6 /* Frameworks */,
 				A7FDCF6220C67C7700FBA5A6 /* Resources */,
@@ -271,6 +315,81 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		66F0A161615B40046C2F0674 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DemoSYAlertView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82F5A014B618B6683AD191B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DemoSYAlertViewUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCE8FC6DB2171BFEC00DC66E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DemoSYAlertViewTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F787426E7BE6D1B375900811 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DemoSYAlertView/Pods-DemoSYAlertView-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoSYAlertView/Pods-DemoSYAlertView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A7FDCF3D20C67C6E00FBA5A6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -278,8 +397,8 @@
 			files = (
 				A7FDCF4920C67C6E00FBA5A6 /* ViewController.m in Sources */,
 				A7FDCF5420C67C7700FBA5A6 /* main.m in Sources */,
+				DFA0A136210BE7D500BF3A0D /* SYAlertController.m in Sources */,
 				A7FDCF4620C67C6E00FBA5A6 /* AppDelegate.m in Sources */,
-				A7FDCF7920C67E5C00FBA5A6 /* SYAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +565,7 @@
 		};
 		A7FDCF6E20C67C7700FBA5A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4477CA6274CCEE57C45CBB2 /* Pods-DemoSYAlertView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -464,6 +584,7 @@
 		};
 		A7FDCF6F20C67C7700FBA5A6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1ECE50615764618313E841A8 /* Pods-DemoSYAlertView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -482,6 +603,7 @@
 		};
 		A7FDCF7120C67C7700FBA5A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F598B8767A675DAC6098821 /* Pods-DemoSYAlertViewTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -500,6 +622,7 @@
 		};
 		A7FDCF7220C67C7700FBA5A6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E24B4265E3C80BE4C2150A2A /* Pods-DemoSYAlertViewTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -518,6 +641,7 @@
 		};
 		A7FDCF7420C67C7700FBA5A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EDC1B5DE1FA41438A3A3673 /* Pods-DemoSYAlertViewUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DemoSYAlertViewUITests/Info.plist;
@@ -535,6 +659,7 @@
 		};
 		A7FDCF7520C67C7700FBA5A6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8ECBEFFEBDEE5A8DA5DBC75 /* Pods-DemoSYAlertViewUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DemoSYAlertViewUITests/Info.plist;
