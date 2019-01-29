@@ -14,7 +14,7 @@
 
 
 * 使用介绍
-  * 自动导入：使用命令`pod 'SYAlertView'`导入到项目中
+  * 自动导入：使用命令`pod 'SYAlertViewController'`导入到项目中
   * 手动导入：或下载源码后，将源码添加到项目中
   
   

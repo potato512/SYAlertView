@@ -148,7 +148,7 @@
 				A7FDCF4520C67C6E00FBA5A6 /* AppDelegate.m */,
 				A7FDCF4720C67C6E00FBA5A6 /* ViewController.h */,
 				A7FDCF4820C67C6E00FBA5A6 /* ViewController.m */,
-				A7FDCF7620C67E5C00FBA5A6 /* SYAlertView */,
+				A7FDCF7620C67E5C00FBA5A6 /* SYAlertViewController */,
 				A7FDCF4A20C67C6E00FBA5A6 /* Main.storyboard */,
 				A7FDCF4D20C67C7700FBA5A6 /* Assets.xcassets */,
 				A7FDCF4F20C67C7700FBA5A6 /* LaunchScreen.storyboard */,
@@ -176,14 +176,14 @@
 			path = DemoSYAlertViewUITests;
 			sourceTree = "<group>";
 		};
-		A7FDCF7620C67E5C00FBA5A6 /* SYAlertView */ = {
+		A7FDCF7620C67E5C00FBA5A6 /* SYAlertViewController */ = {
 			isa = PBXGroup;
 			children = (
 				DFA0A134210BE7D500BF3A0D /* SYAlertController.h */,
 				DFA0A135210BE7D500BF3A0D /* SYAlertController.m */,
 			);
-			name = SYAlertView;
-			path = ../../SYAlertView;
+			name = SYAlertViewController;
+			path = ../../SYAlertViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
