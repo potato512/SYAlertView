@@ -87,6 +87,10 @@ alertView.containerView.frame = CGRectMake(20.0f, (alertView.frame.size.height -
 
 
 #### 修改说明
+* 20190129
+  * 版本号：1.1.0 1.1.1
+  * 修改完善
+
 * 20180728
   * 版本号：1.0.4
   * 优化完善
