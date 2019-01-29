@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SYAlertViewController"
-  s.version      = "1.1.0"
+  s.version      = "1.1.1"
   s.summary      = "the containerView of SYAlertViewController can add subviews, which cretated by developer"
   s.homepage     = "https://github.com/potato512/SYAlertViewController"
   s.license      = "MIT"
