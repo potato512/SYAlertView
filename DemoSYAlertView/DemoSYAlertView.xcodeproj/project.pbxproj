@@ -18,7 +18,7 @@
 		A7FDCF5E20C67C7700FBA5A6 /* DemoSYAlertViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FDCF5D20C67C7700FBA5A6 /* DemoSYAlertViewTests.m */; };
 		A7FDCF6920C67C7700FBA5A6 /* DemoSYAlertViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FDCF6820C67C7700FBA5A6 /* DemoSYAlertViewUITests.m */; };
 		C13B6588FB2EF4762F1C4F9D /* libPods-DemoSYAlertViewUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D60DB0725023849B7A71385 /* libPods-DemoSYAlertViewUITests.a */; };
-		DFA0A136210BE7D500BF3A0D /* SYAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA0A135210BE7D500BF3A0D /* SYAlertController.m */; };
+		DFA0A136210BE7D500BF3A0D /* SYAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA0A135210BE7D500BF3A0D /* SYAlertViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +63,8 @@
 		A7FDCF6A20C67C7700FBA5A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8ECBEFFEBDEE5A8DA5DBC75 /* Pods-DemoSYAlertViewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoSYAlertViewUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoSYAlertViewUITests/Pods-DemoSYAlertViewUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D48B0320944712204C9F7E3C /* libPods-DemoSYAlertViewTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DemoSYAlertViewTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DFA0A134210BE7D500BF3A0D /* SYAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYAlertController.h; sourceTree = "<group>"; };
-		DFA0A135210BE7D500BF3A0D /* SYAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYAlertController.m; sourceTree = "<group>"; };
+		DFA0A134210BE7D500BF3A0D /* SYAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYAlertViewController.h; sourceTree = "<group>"; };
+		DFA0A135210BE7D500BF3A0D /* SYAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYAlertViewController.m; sourceTree = "<group>"; };
 		E24B4265E3C80BE4C2150A2A /* Pods-DemoSYAlertViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoSYAlertViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoSYAlertViewTests/Pods-DemoSYAlertViewTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,8 +179,8 @@
 		A7FDCF7620C67E5C00FBA5A6 /* SYAlertViewController */ = {
 			isa = PBXGroup;
 			children = (
-				DFA0A134210BE7D500BF3A0D /* SYAlertController.h */,
-				DFA0A135210BE7D500BF3A0D /* SYAlertController.m */,
+				DFA0A134210BE7D500BF3A0D /* SYAlertViewController.h */,
+				DFA0A135210BE7D500BF3A0D /* SYAlertViewController.m */,
 			);
 			name = SYAlertViewController;
 			path = ../../SYAlertViewController;
@@ -397,7 +397,7 @@
 			files = (
 				A7FDCF4920C67C6E00FBA5A6 /* ViewController.m in Sources */,
 				A7FDCF5420C67C7700FBA5A6 /* main.m in Sources */,
-				DFA0A136210BE7D500BF3A0D /* SYAlertController.m in Sources */,
+				DFA0A136210BE7D500BF3A0D /* SYAlertViewController.m in Sources */,
 				A7FDCF4620C67C6E00FBA5A6 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

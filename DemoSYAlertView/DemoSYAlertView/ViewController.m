@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "SYAlertController.h"
+#import "SYAlertViewController.h"
 
 static CGFloat const originXY = 20.0;
 static CGFloat const heightButton = 40.0;
@@ -15,7 +15,7 @@ static CGFloat const heightButton = 40.0;
 
 @interface ViewController ()
 
-@property (nonatomic, strong) SYAlertController *alertView;
+@property (nonatomic, strong) SYAlertViewController *alertView;
 
 @property (nonatomic, strong) UIView *messageView;
 @property (nonatomic, strong) UIView *titleMessageView;
@@ -119,10 +119,10 @@ static CGFloat const heightButton = 40.0;
 
 #pragma mark - getter
 
-- (SYAlertController *)alertView
+- (SYAlertViewController *)alertView
 {
     if (_alertView == nil) {
-        _alertView = [[SYAlertController alloc] init];
+        _alertView = [[SYAlertViewController alloc] init];
 //        _alertView.isAnimation = YES;
 //        _alertView.adjustKeyboardHeight = YES;
     }

@@ -1,14 +1,14 @@
 //
-//  SYAlertController.h
+//  SYAlertViewController.h
 //  zhangshaoyu
 //
 //  Created by zhangshaoyu on 2018/6/4.
 //  Copyright © 2018年 zhangshaoyu. All rights reserved.
-//  https://github.com/potato512/SYAlertView
+//  https://github.com/potato512/SYAlertViewController
 
 #import <UIKit/UIKit.h>
 
-@interface SYAlertController : UIViewController
+@interface SYAlertViewController : UIViewController
 
 /// 内容视图（默认居中显示）
 @property (nonatomic, strong) UIView *showContainerView;

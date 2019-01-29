@@ -1,16 +1,16 @@
 //
-//  SYAlertController.m
+//  SYAlertViewController.m
 //  zhangshaoyu
 //
 //  Created by zhangshaoyu on 2018/6/4.
 //  Copyright © 2018年 zhangshaoyu. All rights reserved.
 //  
 
-#import "SYAlertController.h"
+#import "SYAlertViewController.h"
 
 static CGFloat const heightSpace = 10.0f;
 
-@interface SYAlertController () <UIGestureRecognizerDelegate>
+@interface SYAlertViewController () <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) UIWindow *alertWindow;
 
@@ -21,7 +21,7 @@ static CGFloat const heightSpace = 10.0f;
 
 @end
 
-@implementation SYAlertController
+@implementation SYAlertViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

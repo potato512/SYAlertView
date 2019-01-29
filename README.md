@@ -23,12 +23,12 @@
 
 1、导入头文件
 ```
-#import "SYAlertController.h"
+#import "SYAlertViewController.h"
 ```
 
 2、实例化
 ```
-SYAlertController *alertView = [[SYAlertController alloc] init];
+SYAlertViewController *alertView = [[SYAlertViewController alloc] init];
 
 // 启用显示时的动画效果（默认未启用）
 alertView.isAnimation = YES;
@@ -88,7 +88,7 @@ alertView.containerView.frame = CGRectMake(20.0f, (alertView.frame.size.height -
 
 #### 修改说明
 * 20190129
-  * 版本号：1.1.0 1.1.1
+  * 版本号：1.1.0, 1.1.1, 1.2.0
   * 修改完善
 
 * 20180728
